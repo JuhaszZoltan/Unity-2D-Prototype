@@ -1,0 +1,73 @@
+--ORAVAZLAT--
+--1--
+
+- mappák létrehozása
+(animation, audio, materials, prefab, [scenes], scripts, sprites)
+
+- sprite mode:
+single/multiple
+
+- camera:
+ortografic/perspective
+
+- parallax illusin (ori)
+
+- background, midgrounk, foreground
+ (order in layer)
+
+-----------------------
+
+prefab
+
+3x platform:
+ -1 order in layer
+ 2D box collider
+ offset
+ -> prefab fld
+ 
+-do it yourself-
+
+-----------------------
+
+character
+
+sprite mode -> multiple
+sprite editor
+slice->
+(automatic)
+!animated ss
+-> grid (100*100)
+-> apply
+
+-> order in layer 10
+TAG: playe
+-> Ridgedbody 2D
+-> fixed angel
+-> 2D collider
+(circle + box)
+
+-----------------------
+
+animation
+
+idle -> drag & drop
+rename, reposition file
+
+-> inspektor (animator)
+-> animator window (map)
+
+-> slow speed (.25)
+
+run -> 4 sprite
+(gray-> not the default)
+(set layer default)
+(slow .5)
+tranzition ->, <-
+
+parameters
+-> float (n: speed)
+conditions ->
+speed grater than .01
+
+small tranzition
+NO exit time!
