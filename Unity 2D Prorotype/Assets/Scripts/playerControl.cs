@@ -10,6 +10,12 @@ public class playerControl : MonoBehaviour
     Animator myAnim;
     bool facingRight;
 
+    bool grounded = false;
+    float gcr = 0.2F;
+    public LayerMask groundLayer;
+    public Transform groundChecker;
+    public float jumpHeight = 7;
+
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
@@ -17,8 +23,22 @@ public class playerControl : MonoBehaviour
         facingRight = true;
     }
 
+    void Update()
+    {
+        if(grounded && Input.GetAxis("Jump") > 0)
+        {
+            grounded = false;
+            myAnim.SetBool("isGrounded", grounded);
+            myRB.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
+        }
+    }
+
     void FixedUpdate()
     {
+        grounded = Physics2D.OverlapCircle(groundChecker.position, gcr, groundLayer);
+        myAnim.SetBool("isGrounded", grounded);
+        myAnim.SetFloat("verticalSpeed", myRB.velocity.y);
+
         float move = Input.GetAxis("Horizontal");
         myAnim.SetFloat("speed", Mathf.Abs(move));
 

@@ -71,3 +71,27 @@ speed grater than .01
 
 small tranzition
 NO exit time!
+
+--jump--
+def. "ground"
+	-> frefab platforms "Layer"
+def. "when ground"
+	-> create child (!name!)
+	-> move foot (ch icon)
+animation
+	-> jump, fall, land (separate)
+	-> Animation -> create new clip -> add frames
+	-> Animator -> parameters (isGrounded, verticalSpeed)
+	new Blandtree -> motion field -> d&d animation
+	(fall -1, jump +1)
+--------
+code
+	vars: 
+	bool grounded (false), 
+	float gc_radius (0.2),
+	p LayerMask groudlayer,
+	p transform gc_transform,
+	p float jumpHeight
+	
+	Update->
+	if grounded & input.getAx(vertical)

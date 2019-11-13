@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4129594980646632607}
   - component: {fileID: 6014820698462779822}
   - component: {fileID: 7791308523225958797}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: platformBridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
